@@ -1,6 +1,6 @@
 import scale from './scale.js';
 
-let isMute = false;
+let isMute = true;
 const topPositionHz = scale.c4;
 
 const AudioContext = window.AudioContext || window.webkitAudioContext,
@@ -31,6 +31,10 @@ window.addEventListener("deviceorientation", (e) => {
   const percent = adjustedBeta / 90
   const hz = topPositionHz + (topPositionHz * percent);
   betaHelz.innerHTML = Math.round(hz)
+
+  if (isMute) {
+    gainNode.gain.value = -1;
+  }
   oscillator.frequency.value = hz;
 
 
@@ -61,10 +65,10 @@ const note = document.getElementById('note');
 // mute
 const muteButton = document.getElementById('mute'); 
 muteButton.addEventListener('touchstart', () => {
-  isMute = true
-  gainNode.gain.value = -1;
-})
-muteButton.addEventListener('touchend', () => {
   isMute = false
   gainNode.gain.value = 1;
+})
+muteButton.addEventListener('touchend', () => {
+  isMute = true
+  gainNode.gain.value = -1;
 })
