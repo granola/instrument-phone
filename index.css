@@ -1,0 +1,48 @@
+@import url("./normalize.css");
+
+.container {
+  height: 100vh;
+  padding-top: 80px;
+}
+
+
+.button {
+  height: 165px;
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  border: none;
+  border-radius: 82px;
+  font-size: 47px;
+  color: white;
+}
+
+.button.start-button {
+  background: rgb(82, 187, 201, 0.75);
+}
+
+.button.stop-button {
+  background: rgb(175, 38, 18, 0.75);
+}
+
+.hz-container {
+  margin: 286px 0 238px;
+  text-align: center;
+}
+
+.hz-num {
+  margin: 0;
+  display: inline-block;
+  font-size: 134px;
+}
+
+.hz-unit {
+  margin: 0;
+  display: inline-block;
+  font-size: 80px;
+}
+
+.note {
+  font-size: 134px;
+  text-align: center;
+}
