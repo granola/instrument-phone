@@ -1,4 +1,11 @@
 import scale from './scale.js';
+import io from "socket.io-client";
+
+const socket = io("http://localhost:3000");
+
+socket.on("connect", function() {
+  console.debug("socket connected");
+});
 
 let isMute = true;
 const topPositionHz = scale.c4;
