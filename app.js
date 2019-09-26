@@ -69,10 +69,12 @@ const note = document.getElementById('note');
 // mute
 const muteButton = document.getElementById('mute'); 
 muteButton.addEventListener('touchstart', () => {
+  socket.emit("audio-start")
   isMute = false
   gainNode.gain.value = 1;
 })
 muteButton.addEventListener('touchend', () => {
+  socket.emit("audio-stop")
   isMute = true
   gainNode.gain.value = 0;
 })
