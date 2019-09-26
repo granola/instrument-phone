@@ -10,19 +10,17 @@ socket.on("connect", function() {
 let isMute = true;
 const topPositionHz = scale.c4;
 
-const AudioContext = window.AudioContext || window.webkitAudioContext,
-
-ctx = new AudioContext();
-const gainNode = ctx.createGain(); 
+const AudioContext = window.AudioContext || window.webkitAudioContext
+const ctx = new AudioContext();
 const oscillator = ctx.createOscillator();
-
-
+const gainNode = ctx.createGain(); 
 const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
+
 startButton.addEventListener('click', () => {
   oscillator.connect(gainNode);
+  gainNode.gain.value = 0;
   gainNode.connect(ctx.destination);
-  oscillator.connect(ctx.destination);
   oscillator.start();
 });
 
@@ -39,10 +37,9 @@ window.addEventListener("deviceorientation", (e) => {
   const hz = topPositionHz + (topPositionHz * percent);
   betaHelz.innerHTML = Math.round(hz)
 
-  if (isMute) {
-    gainNode.gain.value = -1;
-  }
+  if (isMute) return;
   oscillator.frequency.value = hz;
+  gainNode.gain.value = e.gamma;
 
 
 // note
@@ -77,5 +74,5 @@ muteButton.addEventListener('touchstart', () => {
 })
 muteButton.addEventListener('touchend', () => {
   isMute = true
-  gainNode.gain.value = -1;
+  gainNode.gain.value = 0;
 })
