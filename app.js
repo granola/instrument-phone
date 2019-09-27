@@ -1,8 +1,10 @@
 import scale from './scale.js';
-import io from "socket.io-client";
+import io from 'socket.io-client';
 import throttle from 'lodash.throttle';
 
-const socket = io("http://localhost:3000");
+import { backendOrigin } from './config';
+
+const socket = io(backendOrigin);
 
 socket.on("connect", function() {
   console.debug("socket connected");

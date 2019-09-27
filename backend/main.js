@@ -4,7 +4,9 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const osc = require('node-osc');
 
-const oscClient = new osc.Client('127.0.0.1', 8000);
+const config = require('../config');
+
+const oscClient = new osc.Client(config.oscClientIP, config.oscClientPort);
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -31,4 +33,4 @@ io.on('connection', socket => {
   });
 });
 
-server.listen(3000, () => console.log('Listening on port 3000!'))
+server.listen(config.backendPort, () => console.log('Listening on port ' + config.backendPort))
