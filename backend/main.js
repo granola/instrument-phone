@@ -25,6 +25,10 @@ io.on('connection', socket => {
   socket.on('audio-stop', () => {
     oscClient.send('/audio/stop');
   })
+
+  socket.on("shake", socket => {
+    oscClient.send('/shake');
+  });
 });
 
 server.listen(3000, () => console.log('Listening on port 3000!'))

@@ -1,5 +1,6 @@
 import scale from './scale.js';
 import io from "socket.io-client";
+import throttle from 'lodash.throttle';
 
 const socket = io("http://localhost:3000");
 
@@ -65,6 +66,13 @@ const note = document.getElementById('note');
     }
 }, true);
 
+
+window.addEventListener('devicemotion', throttle((e) => {
+  if(isMute) return;
+  if (5 < e.acceleration.x) {
+    socket.emit("shake");
+  };
+}, 100))
 
 // mute
 const muteButton = document.getElementById('mute'); 
