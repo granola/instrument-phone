@@ -35,10 +35,8 @@ stopButton.addEventListener('click', () => {
   stopButton.style.display = 'none';
 })
 
-
 const betaHelz = document.getElementById('helz'); 
 window.addEventListener("deviceorientation", (e) => {
-  // change start point function
   const adjustedBeta = Math.round((e.beta + 180))
   const percent = adjustedBeta / 90
   const hz = topPositionHz + (topPositionHz * percent);
