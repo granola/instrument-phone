@@ -19,10 +19,12 @@
 
 .button.start-button {
   background: rgb(82, 187, 201, 0.75);
+  display: block;
 }
 
 .button.stop-button {
   background: rgb(175, 38, 18, 0.75);
+  display: none;
 }
 
 .hz-container {

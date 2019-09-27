@@ -23,10 +23,14 @@ startButton.addEventListener('click', () => {
   gainNode.gain.value = 0;
   gainNode.connect(ctx.destination);
   oscillator.start();
+  startButton.style.display = 'none';
+  stopButton.style.display = 'block';
 });
 
 stopButton.addEventListener('click', () => {
   oscillator.stop();
+  startButton.style.display = 'block';
+  stopButton.style.display = 'none';
 })
 
 
