@@ -4,7 +4,7 @@ const oscClientPort = 8000;
 
 // in frontend
 const backendPort = 3000;
-const backendOrigin = 'http://localhost:' + backendPort;
+const backendOrigin = 'https://instrument-phone.herokuapp.com:' + backendPort;
 
 module.exports = {
   oscClientIP,
