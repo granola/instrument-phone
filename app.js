@@ -46,28 +46,6 @@ window.addEventListener("deviceorientation", (e) => {
   oscillator.frequency.value = hz;
   gainNode.gain.value = e.gamma;
 
-
-// note
-const note = document.getElementById('note');
-    if (258 <= hz && hz <= 264 ) {
-      note.innerHTML = "ド"
-    } else if (290 <= hz && hz <= 296 ) {
-      note.innerHTML = "レ"
-    } else if (326 <= hz && hz <= 332 ) {
-      note.innerHTML = "ミ"
-    } else if (346 <= hz && hz <= 352 ) {
-      note.innerHTML = "ファ"
-    } else if (328 <= hz && hz <= 394 ) {
-      note.innerHTML = "ソ"
-    } else if (437 <= hz && hz <= 443 ) {
-      note.innerHTML = "ラ"
-    } else if (490 <= hz && hz <= 496 ) {
-      note.innerHTML = "シ"
-    } else if (520 <= hz && hz <= 526 ) {
-      note.innerHTML = "ド"
-    } else {
-      note.innerHTML = "-"
-    }
 }, true);
 
 
